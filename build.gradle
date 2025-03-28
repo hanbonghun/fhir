@@ -25,17 +25,25 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    compileOnly 'ca.uhn.hapi.fhir:hapi-fhir-base:8.0.0'
-    compileOnly 'ca.uhn.hapi.fhir:hapi-fhir-structures-dstu2:8.0.0'
-    compileOnly 'ca.uhn.hapi.fhir:hapi-fhir-structures-r4:8.0.0'
-}
 
+//    // core
+    implementation('ca.uhn.hapi.fhir:hapi-fhir-base:8.0.0')
+    implementation('ca.uhn.hapi.fhir:hapi-fhir-structures-r4:8.0.0')
+    implementation('ca.uhn.hapi.fhir:hapi-fhir-validation-resources-r4:8.0.0')
+    implementation('ca.uhn.hapi.fhir:hapi-fhir-server:8.0.0')
+
+//    compileOnly "ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:8.0.0@war"
+//    compileOnly "ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:8.0.0:classes"
+
+
+}
 tasks.named('test') {
     useJUnitPlatform()
 }
